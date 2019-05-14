@@ -1,5 +1,16 @@
 
 
+//6-1
+
+//object Distinct {
+//  def solution(a: Array[Int]): Int = {
+//    a.distinct.length
+//  }
+//}
+
+
+
+
 // 2-1
 //object OddOccurrencesInArray {
 ////  def solution(a: Array[Int]) = {

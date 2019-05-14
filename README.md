@@ -91,3 +91,13 @@ object PermCheck {
 }
 ```
 [Result page](https://app.codility.com/demo/results/trainingXC2SA2-9VY/)
+
+## 6-1
+```scala
+object Distinct {
+  def solution(a: Array[Int]): Int = {
+    a.distinct.length
+  }
+}
+```
+[Result page](https://app.codility.com/demo/results/training6QYMAV-XFR/)

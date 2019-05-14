@@ -23,4 +23,4 @@ project/target/
 target/
 .scala_dependencies
 .worksheet
-*/Practice/
+src/main/scala/Practice/PracticeWS.sc

@@ -92,6 +92,26 @@ object PermCheck {
 ```
 [Result page](https://app.codility.com/demo/results/trainingXC2SA2-9VY/)
 
+
+## 5-1
+```scala
+object PassingCars {
+  def solution(a: Array[Int]): Int = {
+    var sumArr = Array.fill(a.length + 1)(0)
+    for (i <- 0 until a.length){
+      if (a(i) == 1) sumArr(i+1) = sumArr(i)
+      else sumArr(i+1) = sumArr(i) + 1
+    }
+    val ans: Long = a.zipWithIndex.foldLeft(0L){ (acc, numAndIdx) =>
+      if (numAndIdx._1 == 0) acc
+      else acc + sumArr(numAndIdx._2)
+    }
+    if (ans > 1000000000) -1 else ans.toInt
+  }
+}
+```
+[Result page](https://app.codility.com/demo/results/trainingZAJ24V-RF5/)
+
 ## 6-1
 ```scala
 object Distinct {

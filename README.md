@@ -146,7 +146,7 @@ object MaxProductOfThree {
 ```
 [Result page](https://app.codility.com/demo/results/trainingSWUC2Z-3S7/)
 
-## 8-2
+## 8-1
 ```scala
 object Dominator {
   def solution(a: Array[Int]): Int = {

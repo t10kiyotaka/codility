@@ -145,3 +145,20 @@ object MaxProductOfThree {
 }
 ```
 [Result page](https://app.codility.com/demo/results/trainingSWUC2Z-3S7/)
+
+## 8-2
+```scala
+object Dominator {
+  def solution(a: Array[Int]): Int = {
+    val groupMap = a.foldLeft(Map[Int, Int]()){ (stock, num) =>
+      stock.get(num) match {
+        case None => stock + (num -> 1)
+        case _ => stock.updated(num, stock(num) + 1)
+      }
+    }
+    val dominant = groupMap.filter(m => m._2 > a.length / 2)
+    if (dominant.nonEmpty) a.indexOf(dominant.keys.head) else -1
+  }
+}
+```
+[Result page](https://app.codility.com/demo/results/training8SU4KZ-2Z3/)

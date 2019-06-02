@@ -61,6 +61,23 @@ object Frogjmp {
 ```
 [Result page](https://app.codility.com/demo/results/trainingB4NR9D-V7U/)
 
+
+## 3-2
+```scala
+object PermMissingElem {
+  def solution(a: Array[Int]): Int = {
+    val expectedArr: Seq[Int] = (1 to a.length + 1).toList
+    val diff: Seq[Int] = expectedArr.diff(a.toList)
+    diff.nonEmpty match {
+      case true => diff(0)
+      case _ => 1
+    }
+  }
+}
+```
+[Result page](https://app.codility.com/demo/results/trainingXE5VA2-4UK/)
+
+
 ## 4-1
 ```scala
 object FrogRiverOne {

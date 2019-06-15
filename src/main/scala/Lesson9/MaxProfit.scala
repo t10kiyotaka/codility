@@ -1,6 +1,6 @@
 package Lesson9
 
-object MaxProfit {
+object  MaxProfit {
   def solution(a: Array[Int]): Int = {
     val diffArr = Array.fill(a.length -1)(0)
     for(i <- 0 until a.length - 1){

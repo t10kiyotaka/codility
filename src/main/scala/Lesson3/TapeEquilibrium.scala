@@ -2,15 +2,18 @@ package Lesson3
 
 object TapeEquilibrium {
   def solution(a: Array[Int]): Int = {
-    val sumArr = Array.fill(a.length + 1)(0)
-    for(i <- 1 to a.length) {
+    val aLength = a.length
+    val sumArr = Array.fill(aLength + 1)(0)
+    for(i <- 1 to aLength) {
       sumArr(i) = sumArr(i-1) + a(i-1)
     }
 
-    val diffArr = Array.fill(a.length)(0)
-    for(i <- 1 until a.length) {
-      diffArr(i) = (sumArr(i) - (sumArr.last - sumArr(i))).abs
+    val diffArr = Array.fill(aLength)(0)
+    for(i <- 1 until aLength) {
+      diffArr(i) = { sumArr(i) - (sumArr.last - sumArr(i)) }.abs
     }
     diffArr.tail.min
   }
 }
+
+// https://app.codility.com/demo/results/trainingGYER8V-966/

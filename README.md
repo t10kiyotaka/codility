@@ -37,17 +37,14 @@ object CyclicRotation {
 ## 2-2
 ```scala
 object OddOccurrencesInArray {
-  def solution(a: Array[Int]): Int = {
-    a.foldLeft(Set[Int]()){ (stock, num) =>
-      stock.contains(num) match {
-        case true => stock - num
-        case false => stock + num
-      }
-    }.head
+  def solution(a: Array[Int], k: Int): Array[Int] = {
+    if(k == 0 || a.isEmpty) return a
+    val cycleTimes = k % a.length
+    a.takeRight(cycleTimes) ++ a.dropRight(cycleTimes)
   }
 }
 ```
-[Result page](https://app.codility.com/demo/results/trainingCEAU63-TV5/)
+[Result page](https://app.codility.com/demo/results/training92BN98-XV9/)
 
 
 ## 3-1

@@ -115,16 +115,13 @@ object FrogRiverOne {
 ```scala
 object PermCheck {
   def solution(a: Array[Int]): Int = {
-    val arr = a.sorted.toSeq
-    val permutationArr = 1 to a.size
-    arr.equals(permutationArr) match {
-      case true => 1
-      case false => 0
-    }
+    val actualSize = a.toSet.size
+    val expectedSize = (1 to Math.max(a.length, a.max)).size
+    if(actualSize == expectedSize) 1 else 0
   }
 }
 ```
-[Result page](https://app.codility.com/demo/results/trainingXC2SA2-9VY/)
+[Result page](https://app.codility.com/demo/results/trainingUGNAGH-W76/)
 
 
 ## 5-1

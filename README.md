@@ -128,14 +128,14 @@ object PermCheck {
 ```scala
 object PassingCars {
   def solution(a: Array[Int]): Int = {
-    var sumArr = Array.fill(a.length + 1)(0)
+    val sumArr = Array.fill(a.length + 1)(0)
     for (i <- 0 until a.length){
       if (a(i) == 1) sumArr(i+1) = sumArr(i)
       else sumArr(i+1) = sumArr(i) + 1
     }
-    val ans: Long = a.zipWithIndex.foldLeft(0L){ (acc, numAndIdx) =>
-      if (numAndIdx._1 == 0) acc
-      else acc + sumArr(numAndIdx._2)
+    val ans: Long = a.zipWithIndex.foldLeft(0L){ case (acc, (num, index)) =>
+      if (num == 0) acc
+      else acc + sumArr(index)
     }
     if (ans > 1000000000) -1 else ans.toInt
   }

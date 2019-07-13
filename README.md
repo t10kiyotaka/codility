@@ -171,7 +171,7 @@ object MaxProductOfThree {
     val j2 = sortedArr(1)
     val product2 = Seq(i1, j1, j2).product
 
-    if (product1 > product2) product1 else product2
+    Math.max(product1, product2)
   }
 }
 ```
@@ -199,6 +199,32 @@ object Brackets {
 }
 ```
 [Result page](https://app.codility.com/demo/results/training6PMF7W-GVN/)
+
+## 7-4
+```scala
+object StoneWall {
+  def solution(h: Array[Int]): Int = {
+    val stack = scala.collection.mutable.Stack[Int]()
+
+    h.foldLeft(0) { (cnt, cur) =>
+      if(stack.nonEmpty && stack.head > cur) {
+        while (stack.nonEmpty && stack.head > cur) {
+          stack.pop()
+        }
+      }
+      if(stack.isEmpty || stack.head < cur) {
+        stack.push(cur)
+        cnt + 1
+      } else {
+        cnt
+      }
+    }
+
+  }
+}
+
+```
+[Result page](https://app.codility.com/demo/results/trainingCRYA4C-2JU/)
 
 
 ## 8-1

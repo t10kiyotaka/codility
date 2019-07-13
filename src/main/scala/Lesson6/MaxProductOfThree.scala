@@ -16,7 +16,7 @@ object MaxProductOfThree {
     val j2 = sortedArr(1)
     val product2 = Seq(i1, j1, j2).product
 
-    if (product1 > product2) product1 else product2
+    Math.max(product1, product2)
   }
 }
 

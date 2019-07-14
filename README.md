@@ -307,6 +307,24 @@ object MaxProfit {
 ```
 [Result page](https://app.codility.com/demo/results/training36VWWN-P7S/)
 
+
+## 9-2
+```scala
+object MaxSliceSum {
+  def solution(a: Array[Int]): Int = {
+    val maxSumAndTmpSum = (a.head, 0)
+    a.foldLeft(maxSumAndTmpSum) { case ((maxSum, tmpSum), num) =>
+      val tmp = if(tmpSum + num >= 0) Math.max(tmpSum + num, num)
+      else num
+      val max = Math.max(maxSum, tmp)
+      (max, tmp)
+    }._1
+  }
+}
+```
+[Result page](https://app.codility.com/demo/results/training3EZGE9-QHY/)
+
+
 ## 10-1
 ```scala
 object CountFactors {

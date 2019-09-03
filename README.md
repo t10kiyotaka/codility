@@ -124,6 +124,58 @@ object PermCheck {
 [Result page](https://app.codility.com/demo/results/trainingUGNAGH-W76/)
 
 
+## 4-3
+```scala
+object MaxCounters {
+  def solution(n: Int, a: Array[Int]): Array[Int] = {
+    val arr = Array.fill(n)(0)
+    var currentMax = 0
+    var fill = 0
+
+    for(i <- 0 until a.length) {
+      if(a(i) == n+1) fill = currentMax
+      else {
+        val index = a(i)-1
+        arr.update(index, Math.max(arr(index) + 1, fill + 1))
+        currentMax = Math.max(currentMax, arr(index))
+      }
+    }
+
+    arr.map(i => Math.max(fill, i))
+  }
+}
+```
+[Result page](https://app.codility.com/demo/results/trainingT6C8R9-HCW/)
+
+
+## 4-4
+```scala
+object MissingInteger {
+  def solution(a: Array[Int]): Int = {
+    var ans = 0
+    val sortedArr = a.sorted
+
+    if(a.length == 1) {
+      if(a.head != 1) ans = 1 else ans = a.head + 1
+      return ans
+    }
+    if(sortedArr.last < 1 || sortedArr.head > 1) return 1
+
+    for(i <- 1 until a.length) {
+      if(sortedArr(i-1) >= 0) {
+        if (sortedArr(i) > sortedArr(i-1) + 1) {
+          return sortedArr(i-1) + 1
+        }
+      } else if (sortedArr(i) > 1) return 1
+    }
+    if(ans == 0) sortedArr.last + 1 else ans
+  }
+}
+```
+[Result page](https://app.codility.com/demo/results/training9UHXSE-HGZ/)
+
+
+
 ## 5-1
 ```scala
 object PassingCars {
@@ -170,6 +222,36 @@ object GenomicRangeQuery {
 }
 ```
 [Result page](https://app.codility.com/demo/results/trainingHXFDC6-W49/)
+
+## 5-3
+```scala
+object MinAvgTwoSlice {
+  def solution(a: Array[Int]): Int = {
+    val aLength = a.length
+    var index = 0
+    var min = Double.MaxValue
+
+    for(i <- 0 until aLength-1) {
+      val avgBy2 = (a(i) + a(i+1)) / 2D
+      if(avgBy2 < min) {
+        min = avgBy2
+        index = i
+      }
+
+      if(i < aLength - 2) {
+        val avgBy3 = (a(i) + a(i+1) + a(i+2)) / 3D
+        if(avgBy3 < min) {
+          min = avgBy3
+          index = i
+        }
+      }
+    }
+    index
+  }
+}
+// 
+```
+[Result page](https://app.codility.com/demo/results/trainingZZ4C3G-QQF/)
 
 ## 6-1
 ```scala

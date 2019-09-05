@@ -306,6 +306,23 @@ object MaxProductOfThree {
 ```
 [Result page](https://app.codility.com/demo/results/trainingSWUC2Z-3S7/)
 
+## 6-3
+```scala
+object Triangle {
+  def solution(a: Array[Int]): Int = {
+    val sortedArr = a.sorted
+    var ans = 0
+    for(i <- 2 until a.length) {
+      if(sortedArr(i-2).toLong + sortedArr(i-1).toLong > sortedArr(i).toLong)
+        return 1
+    }
+    ans
+  }
+}
+```
+[Result page](https://app.codility.com/demo/results/trainingVBPRQ6-WFP/)
+
+
 ## 7-1
 ```scala
 object Brackets {
@@ -354,6 +371,22 @@ object Fish {
 
 ```
 [Result page](https://app.codility.com/demo/results/trainingTVTNAP-JF3/)
+
+## 7-3
+```scala
+object Nesting {
+  def solution(s: String): Int = {
+    val stack = scala.collection.mutable.Stack[Char]()
+    s.foreach{ chr =>
+      if(stack.isEmpty) stack.push(chr)
+      else if(stack.head == '(' && chr == ')') stack.pop
+      else stack.push(chr)
+    }
+    if(stack.isEmpty) 1 else 0
+  }
+}
+```
+[Result page](https://app.codility.com/demo/results/trainingAP9WFE-JP3/)
 
 ## 7-4
 ```scala
